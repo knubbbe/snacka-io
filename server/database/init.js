@@ -1,7 +1,7 @@
 const path = require('path');
 const Datastore= require('nedb');
 const sha1 = require('sha1');
-const dbPath = path.join( path.dirname(__dirname), '..', 'database' );
+const dbPath = path.join( path.dirname(__dirname), '..', 'database-store' );
 
 let db = {};
 db.users = new Datastore({ filename: dbPath + '/users.db', autoload: true });

@@ -1,5 +1,5 @@
 const Users = require('./socket-users');
-const db = require('./database/users');
+const db = require('../database/users');
 
 // export function for listening to the socket
 module.exports = (socket) => {
@@ -35,7 +35,7 @@ module.exports = (socket) => {
             name = data.name;
 
             db.addUser({ username: name }, (data) => {
-                console.info('socket', data.Error);
+                console.info('socket', data);
                 console.info(oldName + ' changed name to: ' + name);
 
                 socket.broadcast.emit('change:name', {
