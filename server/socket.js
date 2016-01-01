@@ -1,5 +1,5 @@
-const Users = require('./socket-users');
-const db = require('../database/users');
+const Users = require('./utils/socket-users');
+const db = require('./database/users');
 
 // export function for listening to the socket
 module.exports = (socket) => {

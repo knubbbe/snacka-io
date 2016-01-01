@@ -1,7 +1,7 @@
 var path = require('path');
 var express = require('express');
 var http = require('http');
-var socket = require('./utils/socket.js');
+var socket = require('./socket.js');
 
 var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
