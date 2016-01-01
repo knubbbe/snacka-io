@@ -1,8 +1,8 @@
 // Keep track of which names are used so that there are no duplicates
-module.exports = (function () {
-    var names = {};
+module.exports = ( () => {
+    let names = {};
 
-    var claim = function (name) {
+    const claim = (name) => {
         if (!name || names[name]) {
             return false;
         } else {
@@ -12,8 +12,8 @@ module.exports = (function () {
     };
 
     // find the lowest unused "guest" name and claim it
-    var getGuestName = function () {
-        var name,
+    const getGuestName = () => {
+        let name,
         nextUserId = 1;
 
         do {
@@ -25,7 +25,7 @@ module.exports = (function () {
     };
 
     // serialize claimed names as an array
-    var get = function () {
+    const get = () => {
         var res = [];
         for (var user in names) {
             res.push(user);
@@ -34,7 +34,7 @@ module.exports = (function () {
         return res;
     };
 
-    var free = function (name) {
+    const free = (name) => {
         if (names[name]) {
             delete names[name];
         }

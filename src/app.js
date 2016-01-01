@@ -94,6 +94,8 @@ const App = React.createClass({
 			name : newName
 		}, (result) => {
 
+			console.info('result:', result, typeof result);
+
 			if(!result) return alert('There was an error changing your name');
 
 			let { users } = this.state;

@@ -1,8 +1,9 @@
-var Users = require('../utils/users.js');
+const Users = require('./socket-users');
+const db = require('./database/users');
 
 // export function for listening to the socket
-module.exports = function (socket) {
-    var name = Users.getGuestName();
+module.exports = (socket) => {
+    let name = Users.getGuestName();
 
     // send the new user their name and a list of users
     socket.emit('init', {
@@ -16,7 +17,7 @@ module.exports = function (socket) {
     });
 
     // broadcast a user's message to other users
-    socket.on('send:message', function (data) {
+    socket.on('send:message', (data) => {
         socket.broadcast.emit('send:message', {
             user: name,
             text: data.text
@@ -24,26 +25,36 @@ module.exports = function (socket) {
     });
 
     // validate a user's name change, and broadcast it on success
-    socket.on('change:name', function (data, fn) {
+    socket.on('change:name', (data, fn) => {
         if (Users.claim(data.name)) {
-            var oldName = name;
+
+            const oldName = name;
+
             Users.free(oldName);
 
             name = data.name;
 
-            socket.broadcast.emit('change:name', {
-                oldName: oldName,
-                newName: name
+            db.addUser({ username: name }, (data) => {
+                console.info('socket', data.Error);
+                console.info(oldName + ' changed name to: ' + name);
+
+                socket.broadcast.emit('change:name', {
+                    oldName: oldName,
+                    newName: name
+                });
+
+                fn(data);
+
             });
 
-            fn(true);
+
         } else {
             fn(false);
         }
     });
 
     // clean up when a user leaves, and broadcast it to other users
-    socket.on('disconnect', function () {
+    socket.on('disconnect', () => {
         socket.broadcast.emit('user:left', {
             name: name
         });
