@@ -1,0 +1,23 @@
+/* main: index.scss */
+
+#app,
+.app-wrapper {
+    position: relative;
+    display: block;
+    height: 100%;
+    clear: both;
+
+    &::before,
+    &::after {
+        display: table;
+        content: '';
+        clear: both;
+    }
+}
+
+.content {
+    display: block;
+    float: left;
+    width: calc(100% - #{$sidebar-width});
+    height: 100%;
+}

@@ -1,0 +1,33 @@
+/* main: index.scss */
+
+$content-width: 800px;
+$sidebar-width: 300px;
+$margin: 20px;
+$padding: 30px;
+$padding-small: 15px;
+
+$font-face: 'Ubuntu', sans-serif;
+$font-size: 1.1rem;
+
+$app-bgc: #fff;
+
+$color-main: #2196f3;
+$color-main-dark: #1976d2;
+$color-main-light: #42a5f5;
+$color-main-transparent: rgba($color-main-light, .8);
+$color-accent: #ff5722;
+$color-accent-dark: #e64a19;
+$color-accent-light: #ffccbc;
+
+$color-inactive: rgba(0, 0, 0, .12);
+$color-inactive-inverse: rgba(255, 255, 255, .22);
+$color-active: rgba($color-main, .12);
+$color-active-inverse: rgba(255, 255, 255, .42);
+
+$color-divider: #b6b6b6;
+$shadow: rgba(0, 0, 0, .5);
+
+$text-color: #212121;
+$text-main-color: #009688;
+$text-accent-color: #fff;
+$link-color: #1565c0;

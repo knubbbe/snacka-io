@@ -1,0 +1,27 @@
+/* main: index.scss */
+
+input {
+    max-width: 100%;
+    padding: $padding-small;
+    border: 0;
+    border-bottom: 1px solid $color-inactive;
+    font-size: ($font-size + .1);
+    background-color: transparent;
+    outline: 0;
+    transition: border-color .3s ease;
+
+    &:active,
+    &:focus {
+        border-bottom-color: $color-active;
+    }
+
+    &.inverse {
+        border-bottom-color: $color-inactive-inverse;
+        color: $text-accent-color;
+
+        &:active,
+        &:focus {
+            border-bottom-color: $color-active-inverse;
+        }
+    }
+}

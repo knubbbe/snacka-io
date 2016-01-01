@@ -1,0 +1,32 @@
+/* main: index.scss */
+
+.messages {
+    display: block;
+	margin: 0 auto;
+	padding: 1em 1em 0;
+
+    .message {
+        padding: 5px;
+
+        &:hover {
+            background-color: $color-main-light;
+        }
+
+        strong {
+            margin-right: 5px;
+        }
+    }
+}
+
+.new-message {
+    display: block;
+    width: 100%;
+    padding: 20px 20px 20px 0;
+
+    input {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.5em;
+    }
+}

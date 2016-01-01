@@ -1,0 +1,45 @@
+/* main: index.scss */
+
+.sidebar {
+    display: block;
+    float: left;
+    max-width: $sidebar-width;
+    width: 100%;
+    height: 100%;
+    color: $text-accent-color;
+    background-color: $color-main;
+
+    .header {
+        display: block;
+        width: 100%;
+        max-width: $sidebar-width;
+        color: $text-accent-color;
+        background-color: $color-main;
+
+        h1 {
+            display: block;
+            margin: 0;
+            padding: $padding-small $padding;
+            text-align: center;
+        }
+    }
+
+    .users,
+    .change-name-form {
+        display: block;
+
+        h3 {
+            display: block;
+            padding: $padding-small $padding;
+            background-color: $color-main-dark;
+        }
+
+        ul,
+        form {
+            display: block;
+            margin: 0;
+            padding: $padding-small  $padding;
+            list-style-type: none;
+        }
+    }
+}
