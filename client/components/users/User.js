@@ -2,7 +2,7 @@ const React = require('react');
 
 module.exports = React.createClass({
 	propTypes: {
-		username: React.PropTypes.string.isRequired,
+		username: React.PropTypes.string,
 	},
 
 	render() {

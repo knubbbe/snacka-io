@@ -5,6 +5,7 @@ const { addMessage, createRoom, authUser }= require('./utils/db');
 module.exports = (socket) => {
     // let name = Users.getGuestName();
     let username;
+    let users = {};
 
     // send the new user their name and a list of users
     // socket.emit('init', {
@@ -16,9 +17,11 @@ module.exports = (socket) => {
         authUser(data, (res) => {
             const { user } = res;
             username = user.username;
-            userUtils.claim(username);
+
+            users.push(username);
+
             socket.emit('init:ready', {
-                users: userUtils.get(),
+                users: users,
                 user: user
             });
             socket.broadcast.emit('user:join', {

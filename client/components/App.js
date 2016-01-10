@@ -17,12 +17,12 @@ module.exports = React.createClass({
 			users: [],
 			rooms:[],
 			messages:[],
-			text: ''
+			text: '',
+			activeRoom: ''
 		};
 	},
 
 	componentWillMount() {
-
 		request.post('/api/message/list')
 			.send({ room: 'lobby' })
 			.end( (err, res) => {
@@ -35,18 +35,24 @@ module.exports = React.createClass({
 				const { body } = res;
 				this.setState({ rooms: body });
 			});
-
-		this.setState({
-			users: this.state.users.concat([this.props.users])
-		})
 	},
 
 	componentDidMount() {
+		socket.on('init:ready', this._init);
 		socket.on('send:message', this._messageRecieve);
 		socket.on('user:join', this._userJoined);
 		socket.on('user:left', this._userLeft);
 		socket.on('change:name', this._userChangedName);
 		socket.on('room:created', this._roomCreated);
+
+		this._setupUsers();
+	},
+
+	_setupUsers() {
+		const { users } = this.props;
+		this.setState({
+			users
+		});
 	},
 
 	_messageRecieve(message) {
@@ -74,7 +80,7 @@ module.exports = React.createClass({
 		};
 		console.log('user:join', data);
 		this.setState({
-			users: this.state.users.concat([username]),
+			users: this.state.users.push(username),
 			messages: this.state.messages.concat([message])
 		});
 	},
@@ -155,7 +161,6 @@ module.exports = React.createClass({
 	// },
 
 	render() {
-		console.log('LAyout', this.state.users);
 		return (
 			<div className="app-wrapper">
 				<div className="sidebar">

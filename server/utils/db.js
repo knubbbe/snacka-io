@@ -21,12 +21,15 @@ const createUser = ( (req, res, next) => {
     db.user.insert({
         username,
         password: _password,
-        activeRoom: '2buW2dI2LFR1BegH',
+        activeRoom: '',
         access_token
     }, (err, doc) => {
         if (err) res.send({ success: false, error: err.errorType });
 
-        res.send({ success: true, access_token: doc.access_token });
+        res.send({
+            success: true,
+            access_token: doc.access_token
+        });
     });
 });
 
@@ -39,20 +42,26 @@ const loginUser = ( (req, res ,next) => {
         if (doc.password !== sha1(password)) {
             res.send({ success: false, error: 'wrong password' });
         } else {
-            res.send({ success: true, user: doc });
+            res.send({
+                success: true,
+                user: doc
+            });
         }
     });
 });
 
 const authUser = ( (access_token, cb) => {
-    cb = cb || function() {};
     // const { access_token } = req.body;
 
     db.user.findOne({ access_token },  (err, doc) => {
         if (err) res.send({ success: false, error: err.errorType });
 
-        cb({ success: true, user: doc});
-        // res.send({ success: true, user: doc });
+    if (typeof cb === 'function') {
+        cb({
+            success: true,
+            user: doc
+        });
+    }
     });
 });
 

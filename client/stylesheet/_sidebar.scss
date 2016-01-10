@@ -51,11 +51,13 @@
             }
         }
 
-        li {
-            color: $color-inactive;
+        &.room-list {
+            li {
+                color: $color-inactive-inverse;
 
-            &.active {
-                color: $text-accent-color;
+                &.active {
+                    color: $text-accent-color;
+                }
             }
         }
     }

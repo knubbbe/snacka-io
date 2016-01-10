@@ -1,0 +1,45 @@
+render	/home/knubbe/apps/snacka/client/components/users/User.js	/^	render() {$/;"	function	line:8
+.sidebar	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^.sidebar {$/;"	function	line:3
+.header	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^    .header {$/;"	function	line:12
+h1	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^        h1 {$/;"	function	line:19
+.list	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^    .list,$/;"	function	line:27
+.form	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^    .form {$/;"	function	line:28
+h3	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^        h3 {$/;"	function	line:31
+ul	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^        ul,$/;"	function	line:36
+form	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^        form {$/;"	function	line:37
+input	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^            input {$/;"	function	line:43
+button	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^            button {$/;"	function	line:48
+&.room-list	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^        &.room-list {$/;"	function	line:54
+li	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^            li {$/;"	function	line:55
+&.active	/home/knubbe/apps/snacka/client/stylesheet/_sidebar.scss	/^                &.active {$/;"	function	line:58
+getInitialState	/home/knubbe/apps/snacka/client/components/Login.js	/^	getInitialState() {$/;"	function	line:6
+_handleLogin	/home/knubbe/apps/snacka/client/components/Login.js	/^	_handleLogin(e) {$/;"	function	line:12
+_handleRegister	/home/knubbe/apps/snacka/client/components/Login.js	/^	_handleRegister(e) {$/;"	function	line:31
+_formSwap	/home/knubbe/apps/snacka/client/components/Login.js	/^	_formSwap(e) {$/;"	function	line:51
+render	/home/knubbe/apps/snacka/client/components/Login.js	/^	render() {$/;"	function	line:59
+.auth	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^.auth {$/;"	function	line:1
+.auth-wrapper	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	.auth-wrapper {$/;"	function	line:5
+.container	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	.container {$/;"	function	line:12
+a	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	a {$/;"	function	line:17
+h1	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	h1 {$/;"	function	line:24
+i	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^		i {$/;"	function	line:30
+h2	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	h2 {$/;"	function	line:35
+input	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	input {$/;"	function	line:41
+button	/home/knubbe/apps/snacka/client/stylesheet/_login.scss	/^	button {$/;"	function	line:47
+getInitialState	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	getInitialState() {$/;"	function	line:9
+componentWillMount	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	componentWillMount() {$/;"	function	line:16
+userInit	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	userInit() {$/;"	function	line:20
+handleLogin	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	handleLogin(user) {$/;"	function	line:39
+handleRegister	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	handleRegister(user) {$/;"	function	line:60
+render	/home/knubbe/apps/snacka/client/components/AuthWrapper.js	/^	render() {$/;"	function	line:77
+getInitialState	/home/knubbe/apps/snacka/client/components/App.js	/^	getInitialState() {$/;"	function	line:15
+componentWillMount	/home/knubbe/apps/snacka/client/components/App.js	/^	componentWillMount() {$/;"	function	line:25
+componentDidMount	/home/knubbe/apps/snacka/client/components/App.js	/^	componentDidMount() {$/;"	function	line:40
+_setupUsers	/home/knubbe/apps/snacka/client/components/App.js	/^	_setupUsers() {$/;"	function	line:51
+_messageRecieve	/home/knubbe/apps/snacka/client/components/App.js	/^	_messageRecieve(message) {$/;"	function	line:58
+_roomCreated	/home/knubbe/apps/snacka/client/components/App.js	/^	_roomCreated(room) {$/;"	function	line:64
+_userJoined	/home/knubbe/apps/snacka/client/components/App.js	/^	_userJoined(data) {$/;"	function	line:75
+_userLeft	/home/knubbe/apps/snacka/client/components/App.js	/^	_userLeft(data) {$/;"	function	line:88
+handleMessageSubmit	/home/knubbe/apps/snacka/client/components/App.js	/^	handleMessageSubmit(message) {$/;"	function	line:117
+handleCreateRoom	/home/knubbe/apps/snacka/client/components/App.js	/^	handleCreateRoom(room) {$/;"	function	line:126
+render	/home/knubbe/apps/snacka/client/components/App.js	/^	render() {$/;"	function	line:163
