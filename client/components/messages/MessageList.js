@@ -1,5 +1,4 @@
 const React = require('react');
-
 const Message = require('./Message');
 
 module.exports = React.createClass({
@@ -12,12 +11,12 @@ module.exports = React.createClass({
 			<div className='messages'>
 				{ (this.props.messages.length < 1)?
 					<em>nothing to see here, move along..</em> : '' }
-				{ this.props.messages.map( (message, i) => {
+				{ this.props.messages.map( (item, i) => {
 					return (
 						<Message
 							key={i}
-							user={message.user}
-							text={message.text} />
+							user={item.user}
+							text={item.text} />
 						);
 					}) }
 			</div>

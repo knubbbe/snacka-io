@@ -24,14 +24,13 @@
         }
     }
 
-    .users,
-    .change-name-form {
+    .list,
+    .form {
         display: block;
 
         h3 {
             display: block;
-            padding: $padding-small $padding;
-            background-color: $color-main-dark;
+            padding: 0 $padding;
         }
 
         ul,
@@ -40,6 +39,24 @@
             margin: 0;
             padding: $padding-small  $padding;
             list-style-type: none;
+
+            input {
+                display: block;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            button {
+                width: 100%;
+                display: block;
+            }
+        }
+
+        li {
+            color: $color-inactive;
+
+            &.active {
+                color: $text-accent-color;
+            }
         }
     }
 }

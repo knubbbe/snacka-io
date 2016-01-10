@@ -1,0 +1,33 @@
+.auth {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	.container {
+		display: block;
+		width: 49%;
+		float: left;
+
+		&:last-child {
+			margin-left: 1%;
+		}
+	}
+
+	h2 {
+		display: block;
+		margin: $margin auto;
+		text-align: center;
+	}
+
+	input {
+		display: block;
+		margin: 5px auto;
+	}
+
+	button {
+		display: block;
+		width: 100%;
+		margin: 0 auto
+	}
+}

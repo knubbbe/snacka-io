@@ -1,40 +1,59 @@
-const Users = require('./utils/socket-users');
-const db = require('./database/users');
+const userUtils = require('./utils/socket-users');
+const { addMessage, createRoom, authUser }= require('./utils/db');
 
 // export function for listening to the socket
 module.exports = (socket) => {
-    let name = Users.getGuestName();
+    // let name = Users.getGuestName();
+    let username;
 
     // send the new user their name and a list of users
-    socket.emit('init', {
-        name: name,
-        users: Users.get()
+    // socket.emit('init', {
+    //     name: name,
+    //     users: Users.get()
+    // });
+
+    socket.on('init', (data) => {
+        authUser(data, (res) => {
+            const { user } = res;
+            username = user.username;
+            userUtils.claim(username);
+            socket.emit('init:ready', {
+                users: userUtils.get(),
+                user: user
+            });
+            socket.broadcast.emit('user:join', {
+                username
+            });
+        });
     });
 
-    // notify other clients that a new user has joined
-    socket.broadcast.emit('user:join', {
-        name: name
-    });
+    // // notify other clients that a new user has joined
+    // socket.broadcast.emit('user:join', {
+    //     username
+    // });
 
     // broadcast a user's message to other users
     socket.on('send:message', (data) => {
+        const { user, text } = data;
+
+        addMessage({ user: username, text });
         socket.broadcast.emit('send:message', {
-            user: name,
-            text: data.text
+            user: username,
+            text
         });
     });
 
     // validate a user's name change, and broadcast it on success
     socket.on('change:name', (data, fn) => {
-        if (Users.claim(data.name)) {
+        if (userUtils.claim(data.name)) {
 
             const oldName = name;
 
-            Users.free(oldName);
+            userUtils.free(oldName);
 
             name = data.name;
 
-            db.addUser({ username: name }, (data) => {
+            UsersDB.addUser({ username: name }, (data) => {
                 console.info('socket', data);
                 console.info(oldName + ' changed name to: ' + name);
 
@@ -53,11 +72,27 @@ module.exports = (socket) => {
         }
     });
 
+    // broadcast a user creates a new room
+    socket.on('room:create', (data) =>  {
+        const { user, title, description } = data;
+
+        createRoom({
+            title,
+            description,
+            admins: { username }
+        });
+        socket.broadcast.emit('room:created', {
+            user: username,
+            title,
+            description
+        });
+    });
+
     // clean up when a user leaves, and broadcast it to other users
     socket.on('disconnect', () => {
         socket.broadcast.emit('user:left', {
-            name: name
+            username
         });
-        Users.free(name);
+        userUtils.free(username);
     });
 };
