@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { addMessage } from '../actions/messages';
 import { login } from '../actions/users';
-import { loadingStart, loadingEnd } from '../actions/general';
+import { socketConnect, loadingStart, loadingEnd } from '../actions/general';
 
 import Loading from '../components/Loading.js';
 import Login from '../components/Login.js';
@@ -14,11 +14,14 @@ class App extends Component {
 
 	constructor(props) {
 		super(props);
+
+		this.props.dispatch(socketConnect());
 	}
 
 	render() {
 		const {
 			dispatch,
+			socket,
 			isLoading,
 			messages,
 			users,
@@ -65,6 +68,7 @@ App.propTypes = {
 // Note: use https://github.com/faassen/reselect for better performance.
 function mapStateToProps(state) {
 	return {
+		socket: state.general.socket,
 		messages: state.messages,
 		users: state.users,
 		user: state.user,
