@@ -71,20 +71,6 @@ endTyping	/home/knubbe/apps/snacka/client/actions/messages.js	/^\/\/ export func
 render	/home/knubbe/apps/snacka/client/components/Message.js	/^	render() {$/;"	function	line:4
 messages	/home/knubbe/apps/snacka/client/reducers/messages.js	/^export default function messages(state = [], action) {$/;"	function	line:3
 switch	/home/knubbe/apps/snacka/client/reducers/messages.js	/^	switch (action.type) {$/;"	function	line:4
-login	/home/knubbe/apps/snacka/client/actions/users.js	/^export function login(username, password) {$/;"	function	line:7
-loginPending	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginPending() {$/;"	function	line:15
-loginComplete	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginComplete() {$/;"	function	line:19
-startTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function startTyping() {$/;"	function	line:23
-endTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function endTyping() {$/;"	function	line:27
-user	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function user(state = initialState, action) {$/;"	function	line:6
-switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:7
-users	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function users(state = [], action) {$/;"	function	line:20
-switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:21
-constructor	/home/knubbe/apps/snacka/client/containers/App.js	/^	constructor(props) {$/;"	function	line:13
-componentDidMount	/home/knubbe/apps/snacka/client/containers/App.js	/^	componentDidMount() {$/;"	function	line:17
-render	/home/knubbe/apps/snacka/client/containers/App.js	/^	render() {$/;"	function	line:21
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:60
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:60
 html	/home/knubbe/apps/snacka/public/index.html	/^<html>$/;"	function	line:1
 head	/home/knubbe/apps/snacka/public/index.html	/^<head>$/;"	function	line:2
 meta	/home/knubbe/apps/snacka/public/index.html	/^	<meta charset="utf-8">$/;"	function	line:3
@@ -112,4 +98,17 @@ button	/home/knubbe/apps/snacka/client/stylesheet/_inputs.scss	/^button {$/;"	fu
 constructor	/home/knubbe/apps/snacka/client/components/Login.js	/^	constructor(props) {$/;"	function	line:5
 render	/home/knubbe/apps/snacka/client/components/Login.js	/^	render() {$/;"	function	line:16
 handleSubmit	/home/knubbe/apps/snacka/client/components/Login.js	/^	handleSubmit(e) {$/;"	function	line:70
-handleRegister	/home/knubbe/apps/snacka/client/components/Login.js	/^	handleRegister(e) {$/;"	function	line:87
+login	/home/knubbe/apps/snacka/client/actions/users.js	/^export function login(username, password) {$/;"	function	line:6
+loginPending	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginPending() {$/;"	function	line:14
+loginComplete	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginComplete() {$/;"	function	line:18
+startTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function startTyping() {$/;"	function	line:22
+endTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function endTyping() {$/;"	function	line:26
+user	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function user(state = initialState, action) {$/;"	function	line:7
+switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:9
+users	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function users(state = [], action) {$/;"	function	line:21
+switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:22
+render	/home/knubbe/apps/snacka/client/components/Loading.js	/^	render() {$/;"	function	line:4
+constructor	/home/knubbe/apps/snacka/client/containers/App.js	/^	constructor(props) {$/;"	function	line:15
+render	/home/knubbe/apps/snacka/client/containers/App.js	/^	render() {$/;"	function	line:19
+mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66
+mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66

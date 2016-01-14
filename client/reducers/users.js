@@ -1,12 +1,13 @@
 import { LOGIN, LOGIN_PENDING, LOGIN_COMPLETE } from '../actions/users';
+import { loadingStart, loadingEnd } from '../actions/general';
 import { getUserFromStorage } from '../utils/users';
 
 const initialState = getUserFromStorage();
 
 export function user(state = initialState, action) {
+	console.log(action);
 	switch(action.type) {
 		case LOGIN:
-			action.dispath(loginPending());
 			// todo: request user auth from api
 			return 	{
 				username: action.username,

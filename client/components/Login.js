@@ -69,9 +69,10 @@ export default class Login extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log(this.state);
-		const username = this.refs.login_username.value;
-		const password = this.refs.login_password.value;
+		const type = this.state.form;
+		const username = this.state.username;
+		const password = this.state.password;
+		const password_repeat = this.state.password_repeat;
 		let error = false;
 
 		if (username.length < 1) error = 'short username';
@@ -80,28 +81,9 @@ export default class Login extends Component {
 		if (error) {
 			console.log('Error: ', error);
 		} else {
-			this.props.loginAction({ username, password });
-		}
-	}
-
-	handleRegister(e) {
-		e.preventDefault();
-		const username = this.refs.register_username.value;
-		const password = this.refs.register_password.value;
-		const password_repeat = this.refs.register_password_repeat.value;
-		let error = false;
-
-		if (username.length < 1) error = 'short username';
-		if (password.length < 6) error = 'short password';
-		if (password != password_repeat) error = 'password mismatch';
-
-		if (error) {
-			console.log('Error: ', error);
-		} else {
-			this.props.registerAction({
-				username,
-				password
-			});
+			if (type === 'login') {
+				this.props.loginAction(username, password);
+			}
 		}
 	}
 }
