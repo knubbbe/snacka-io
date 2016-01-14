@@ -1,16 +1,19 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const styles = require('!style!css!sass!./stylesheet/index.scss');
-const AuthWrapper = require('./components/AuthWrapper');
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import App from './containers/App';
+import rootReducer from './reducers';
+import '!style!css!sass!./stylesheet/index.scss';
+// import configureStore from './store/configureStore';
 
-const App = React.createClass({
-	render() {
-		return (
-			<div className="app-wrapper">
-				<AuthWrapper />
-			</div>
-		);
-	}
-});
+let store = createStore(rootReducer);
+// let store = configureStore();
+let rootElement = document.getElementById('root');
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	rootElement
+);

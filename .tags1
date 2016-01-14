@@ -4,14 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-getInitialState	/home/knubbe/apps/snacka/client/components/App.js	/^	getInitialState() {$/;"	function	line:15
-componentWillMount	/home/knubbe/apps/snacka/client/components/App.js	/^	componentWillMount() {$/;"	function	line:25
-componentDidMount	/home/knubbe/apps/snacka/client/components/App.js	/^	componentDidMount() {$/;"	function	line:40
-_setupUsers	/home/knubbe/apps/snacka/client/components/App.js	/^	_setupUsers() {$/;"	function	line:51
-_messageRecieve	/home/knubbe/apps/snacka/client/components/App.js	/^	_messageRecieve(message) {$/;"	function	line:58
-_roomCreated	/home/knubbe/apps/snacka/client/components/App.js	/^	_roomCreated(room) {$/;"	function	line:64
-_userJoined	/home/knubbe/apps/snacka/client/components/App.js	/^	_userJoined(data) {$/;"	function	line:75
-_userLeft	/home/knubbe/apps/snacka/client/components/App.js	/^	_userLeft(data) {$/;"	function	line:88
-handleMessageSubmit	/home/knubbe/apps/snacka/client/components/App.js	/^	handleMessageSubmit(message) {$/;"	function	line:117
-handleCreateRoom	/home/knubbe/apps/snacka/client/components/App.js	/^	handleCreateRoom(room) {$/;"	function	line:126
-render	/home/knubbe/apps/snacka/client/components/App.js	/^	render() {$/;"	function	line:163
+constructor	/home/knubbe/apps/snacka/client/components/Login.js	/^	constructor(props) {$/;"	function	line:5
+render	/home/knubbe/apps/snacka/client/components/Login.js	/^	render() {$/;"	function	line:16
+handleSubmit	/home/knubbe/apps/snacka/client/components/Login.js	/^	handleSubmit(e) {$/;"	function	line:70
+handleRegister	/home/knubbe/apps/snacka/client/components/Login.js	/^	handleRegister(e) {$/;"	function	line:87

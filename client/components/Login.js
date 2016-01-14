@@ -1,116 +1,107 @@
-const React = require('react');
-const request = require('superagent');
+import React, { Component, PropTypes } from 'react';
+import { findDOMNode } from 'react-dom';
 
-module.exports = React.createClass({
+export default class Login extends Component {
+	constructor(props) {
+		super(props);
 
-	getInitialState() {
-		return {
-			currentForm: 'login'
+		this.state = {
+			form: 'login',
+			username: '',
+			password: '',
+			password_repeat: ''
 		};
-	},
+	}
 
-	_handleLogin(e) {
+	render() {
+		const loginElem = (
+			<div className="container">
+				<h1>login</h1>
+				<input type="text" ref="login_username" />
+				<input type="password" ref="login_password" />
+			</div>
+		);
+		const registerElem = (
+			<div className="container">
+				<h1>register</h1>
+				<input type="text" ref="register_username" />
+				<input type="password" ref="register_password" />
+				<input type="password" ref="register_password_repeat" />
+			</div>
+		);
+
+		return (
+			<div className="auth">
+				<div className="auth-wrapper">
+					<form onSubmit={ (e) => this.handleSubmit(e) }>
+						<h1>{this.state.form}</h1>
+						<input
+							type="text"
+							ref="username"
+							value={ this.state.username }
+							onChange={ (e) => { this.setState({ username: e.target.value }); } }
+						/>
+						<input
+							type="password"
+							ref="password"
+							value={ this.state.password }
+							onChange={ (e) => { this.setState({ password: e.target.value }); } }
+						/>
+						{ this.state.form === 'register'?
+							<input
+								type="password"
+								ref="password_repeat"
+								value={ this.state.password_repeat }
+								onChange={ (e) => { this.setState({ password_repeat: e.target.value }); } }
+							/> :
+							'' }
+						<button type="submit">submit</button>
+					</form>
+					<a onClick={(e) => {
+						e.preventDefault();
+						const new_form = (this.state.form === 'login')? 'register' : 'login';
+						this.setState({ form: new_form });
+					}}>{ this.state.form === 'login'? 'register' : 'login'}</a>
+				</div>
+			</div>
+		);
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		console.log(this.state);
+		const username = this.refs.login_username.value;
+		const password = this.refs.login_password.value;
 		let error = false;
-		let username = this.refs.loginUsername.value.trim();
-		let password = this.refs.loginPassword.value.trim();
 
-		if (username.length < 1) {
-			error = true;
-		}
-		if (password.length < 6) {
-			error = true;
-		}
+		if (username.length < 1) error = 'short username';
+		if (password.length < 6) error = 'short password';
 
 		if (error) {
 			console.log('Error: ', error);
 		} else {
 			this.props.loginAction({ username, password });
 		}
-	},
+	}
 
-	_handleRegister(e) {
+	handleRegister(e) {
+		e.preventDefault();
+		const username = this.refs.register_username.value;
+		const password = this.refs.register_password.value;
+		const password_repeat = this.refs.register_password_repeat.value;
 		let error = false;
-		let username = this.refs.registerUsername.value.trim();
-		let password = this.refs.registerPassword.value.trim();
 
-		if (username.length < 3) {
-			error = true;
-		}
-		if (password.length < 6) {
-			error = true;
-		}
+		if (username.length < 1) error = 'short username';
+		if (password.length < 6) error = 'short password';
+		if (password != password_repeat) error = 'password mismatch';
 
 		if (error) {
 			console.log('Error: ', error);
 		} else {
-			this.props.registerAction({ username, password });
+			this.props.registerAction({
+				username,
+				password
+			});
 		}
-
-	},
-
-	_formSwap(e) {
-		e.preventDefault();
-		const newForm = (this.state.currentForm === 'login')? 'register' : 'login';
-		this.setState({
-			currentForm: newForm
-		});
-	},
-
-	render() {
-
-		let loginContainer = (
-			<div className='login container'>
-				<input
-					className='inverse'
-					type='text'
-					name='username'
-					ref='loginUsername'
-					placeholder='username' />
-				<input
-					className='inverse'
-					type='password'
-					name='password'
-					ref='loginPassword'
-					placeholder='password' />
-				<button className='inverse' onClick={ this._handleLogin }>login</button>
-			</div>
-		);
-
-		let registerContainer = (
-			<div className='register container'>
-				<input
-					className='inverse'
-					type='text'
-					name='username'
-					ref='registerUsername'
-					placeholder='username' />
-				<input
-					className='inverse'
-					type='password'
-					name='password'
-					ref='registerPassword'
-					placeholder='password' />
-				<input
-					className='inverse'
-					type='password'
-					name='password'
-					ref='registerPasswordCheck'
-					placeholder='password again' />
-				<button className='inverse' onClick={ this._handleRegister }>register</button>
-			</div>
-		);
-
-		return (
-			<div className='auth'>
-				<div className='auth-wrapper'>
-					<h1>welcome to <i>snacka</i></h1>
-					{ this.state.currentForm === 'login'? loginContainer : registerContainer }
-					<a onClick={ this._formSwap }>
-						{ this.state.currentForm === 'login'? 'register' : 'login' }
-					</a>
-				</div>
-			</div>
-		);
 	}
-
-});
+}
