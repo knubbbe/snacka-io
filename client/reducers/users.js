@@ -1,18 +1,29 @@
-import { LOGIN, LOGIN_PENDING, LOGIN_COMPLETE } from '../actions/users';
-import { loadingStart, loadingEnd } from '../actions/general';
-import { getUserFromStorage } from '../utils/users';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/users';
 
-const initialState = getUserFromStorage();
+const initialState = {
+	isLoggingIn: false,
+	response: false,
+	userData: false
+};
 
 export function user(state = initialState, action) {
-	console.log(action);
 	switch(action.type) {
-		case LOGIN:
-			// todo: request user auth from api
-			return 	{
-				username: action.username,
-				password: action.password
-			};
+		case LOGIN_REQUEST:
+			return Object.assign({}, state, {
+				isLoggingIn: true
+			});
+		case LOGIN_SUCCESS:
+			return Object.assign({}, state, {
+				isLoggingIn: false,
+				response: false,
+				userData: action.user
+			});
+		case LOGIN_FAILURE:
+			console.log(action);
+			return Object.assign({}, state, {
+				isLoggingIn: false,
+				response: action.response.err
+			});
 		default:
 			return state;
 	}

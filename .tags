@@ -57,7 +57,6 @@ renderFilter	/home/knubbe/apps/snacka/client/components/Footer.js	/^	renderFilte
 render	/home/knubbe/apps/snacka/client/components/Footer.js	/^	render() {$/;"	function	line:19
 render	/home/knubbe/apps/snacka/client/components/Todo.js	/^	render() {$/;"	function	line:4
 render	/home/knubbe/apps/snacka/client/components/TodoList.js	/^	render() {$/;"	function	line:5
-configureStore	/home/knubbe/apps/snacka/client/store/configureStore.js	/^export default function configureStore(initialState) {$/;"	function	line:7
 visibilityFilter	/home/knubbe/apps/snacka/client/reducers/visibility-filters.js	/^export default function visibilityFilter(state = C.VisibilityFilters.SHOW_ALL, action) {$/;"	function	line:3
 switch	/home/knubbe/apps/snacka/client/reducers/visibility-filters.js	/^	switch (action.type) {$/;"	function	line:4
 constructor	/home/knubbe/apps/snacka/client/components/AddMessage.js	/^	constructor(props) {$/;"	function	line:5
@@ -95,20 +94,37 @@ button	/home/knubbe/apps/snacka/client/stylesheet/_inputs.scss	/^button {$/;"	fu
 &.inverse	/home/knubbe/apps/snacka/client/stylesheet/_inputs.scss	/^    &.inverse {$/;"	function	line:57
 &:hover	/home/knubbe/apps/snacka/client/stylesheet/_inputs.scss	/^        &:hover {$/;"	function	line:61
 &:active	/home/knubbe/apps/snacka/client/stylesheet/_inputs.scss	/^        &:active {$/;"	function	line:67
+render	/home/knubbe/apps/snacka/client/components/Loading.js	/^	render() {$/;"	function	line:4
+configureStore	/home/knubbe/apps/snacka/client/store/configureStore.js	/^export default function configureStore(initialState) {$/;"	function	line:6
+user	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function user(state = initialState, action) {$/;"	function	line:9
+switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:10
+users	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function users(state = [], action) {$/;"	function	line:32
+switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:33
+socketConnect	/home/knubbe/apps/snacka/client/actions/general.js	/^export function socketConnect() {$/;"	function	line:7
+loadingStart	/home/knubbe/apps/snacka/client/actions/general.js	/^export function loadingStart(element) {$/;"	function	line:11
+loadingEnd	/home/knubbe/apps/snacka/client/actions/general.js	/^export function loadingEnd(element) {$/;"	function	line:14
+alertShow	/home/knubbe/apps/snacka/client/actions/general.js	/^export function alertShow(title, message, alertType) {$/;"	function	line:18
+alertHide	/home/knubbe/apps/snacka/client/actions/general.js	/^export function alertHide() {$/;"	function	line:21
+general	/home/knubbe/apps/snacka/client/reducers/general.js	/^export function general(state = initialState, action) {$/;"	function	line:13
+switch	/home/knubbe/apps/snacka/client/reducers/general.js	/^	switch (action.type) {$/;"	function	line:14
+constructor	/home/knubbe/apps/snacka/client/components/Alert.js	/^	constructor(props) {$/;"	function	line:5
+render	/home/knubbe/apps/snacka/client/components/Alert.js	/^	render() {$/;"	function	line:9
+.alert	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^.alert {$/;"	function	line:1
+&:before	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^	&:before {$/;"	function	line:18
+font: normal normal normal #{$fa-font-size-base}/#	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^		font: normal normal normal #{$fa-font-size-base}\/#{$fa-line-height-base} FontAwesome;$/;"	function	line:23
+&.error	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^	&.error {$/;"	function	line:31
+&:before	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^		&:before {$/;"	function	line:34
+.alert-wrapper	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^	.alert-wrapper {$/;"	function	line:39
+p	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^		p {$/;"	function	line:40
+&:before	/home/knubbe/apps/snacka/client/stylesheet/_alerts.scss	/^		&:before {$/;"	function	line:46
+constructor	/home/knubbe/apps/snacka/client/containers/App.js	/^	constructor(props) {$/;"	function	line:23
+componentDidMount	/home/knubbe/apps/snacka/client/containers/App.js	/^	componentDidMount() {$/;"	function	line:29
+render	/home/knubbe/apps/snacka/client/containers/App.js	/^	render() {$/;"	function	line:33
+mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:81
+mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:81
 constructor	/home/knubbe/apps/snacka/client/components/Login.js	/^	constructor(props) {$/;"	function	line:5
 render	/home/knubbe/apps/snacka/client/components/Login.js	/^	render() {$/;"	function	line:16
 handleSubmit	/home/knubbe/apps/snacka/client/components/Login.js	/^	handleSubmit(e) {$/;"	function	line:70
-login	/home/knubbe/apps/snacka/client/actions/users.js	/^export function login(username, password) {$/;"	function	line:6
-loginPending	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginPending() {$/;"	function	line:14
-loginComplete	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginComplete() {$/;"	function	line:18
-startTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function startTyping() {$/;"	function	line:22
-endTyping	/home/knubbe/apps/snacka/client/actions/users.js	/^\/\/ export function endTyping() {$/;"	function	line:26
-user	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function user(state = initialState, action) {$/;"	function	line:7
-switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:9
-users	/home/knubbe/apps/snacka/client/reducers/users.js	/^export function users(state = [], action) {$/;"	function	line:21
-switch	/home/knubbe/apps/snacka/client/reducers/users.js	/^	switch(action.type) {$/;"	function	line:22
-render	/home/knubbe/apps/snacka/client/components/Loading.js	/^	render() {$/;"	function	line:4
-constructor	/home/knubbe/apps/snacka/client/containers/App.js	/^	constructor(props) {$/;"	function	line:15
-render	/home/knubbe/apps/snacka/client/containers/App.js	/^	render() {$/;"	function	line:19
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66
+loginRequest	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginRequest() {$/;"	function	line:8
+loginComplete	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginComplete(response) {$/;"	function	line:12
+login	/home/knubbe/apps/snacka/client/actions/users.js	/^export function login(username, password) {$/;"	function	line:24

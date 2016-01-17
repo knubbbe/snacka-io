@@ -4,7 +4,6 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-constructor	/home/knubbe/apps/snacka/client/containers/App.js	/^	constructor(props) {$/;"	function	line:15
-render	/home/knubbe/apps/snacka/client/containers/App.js	/^	render() {$/;"	function	line:19
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66
-mapStateToProps	/home/knubbe/apps/snacka/client/containers/App.js	/^function mapStateToProps(state) {$/;"	function	line:66
+loginRequest	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginRequest() {$/;"	function	line:8
+loginComplete	/home/knubbe/apps/snacka/client/actions/users.js	/^export function loginComplete(response) {$/;"	function	line:12
+login	/home/knubbe/apps/snacka/client/actions/users.js	/^export function login(username, password) {$/;"	function	line:24

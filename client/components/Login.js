@@ -76,7 +76,7 @@ export default class Login extends Component {
 		let error = false;
 
 		if (username.length < 1) error = 'short username';
-		if (password.length < 6) error = 'short password';
+		if (password.length < 4) error = 'short password';
 
 		if (error) {
 			console.log('Error: ', error);

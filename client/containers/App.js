@@ -3,9 +3,17 @@ import { connect } from 'react-redux';
 
 import { addMessage } from '../actions/messages';
 import { login } from '../actions/users';
-import { socketConnect, loadingStart, loadingEnd } from '../actions/general';
+import {
+	socketConnect,
+	loadingStart,
+	loadingEnd,
+	alertShow,
+	alertHide
+} from '../actions/general';
 
-import Loading from '../components/Loading.js';
+import Loading from
+'../components/Loading.js';
+import Alert from '../components/Alert.js';
 import Login from '../components/Login.js';
 import AddMessage from '../components/AddMessage';
 import MessageList from '../components/MessageList';
@@ -18,6 +26,10 @@ class App extends Component {
 		this.props.dispatch(socketConnect());
 	}
 
+	componentDidMount() {
+		this.props.dispatch(loadingEnd());
+	}
+
 	render() {
 		const {
 			dispatch,
@@ -27,17 +39,11 @@ class App extends Component {
 			users,
 			user
 		} = this.props;
-		console.log(this.props);
 		let _content;
 
-		if (isLoading) {
-			_content = <Loading />;
-		} else if (!user) {
-			_content = <Login loginAction={ (username, password) => {
-				dispatch(loadingStart());
-				dispatch(login(username, password));
-				setTimeout(() => dispatch(loadingEnd()), 5000);
-			} } />
+		if (!user.data) {
+			_content = <Login loginAction={ (username, password) => dispatch(login(username, password)) }
+			/>
 		} else {
 			_content = (
 				<div style={{ position: 'relative', paddingBottom: 100 }}>
@@ -51,7 +57,13 @@ class App extends Component {
 			);
 		}
 
-		return _content;
+		return (
+			<div>
+				<Loading show={ isLoading} />
+				{ _content }
+				<Alert settings={ this.props.alert } />
+			</div>
+		);
 	}
 }
 
@@ -73,6 +85,7 @@ function mapStateToProps(state) {
 		users: state.users,
 		user: state.user,
 		isLoading: state.general.isLoading,
+		alert: state.general.alert,
 		requesting: state.general.requesting
 		// isTyping: state.isTyping
 	};

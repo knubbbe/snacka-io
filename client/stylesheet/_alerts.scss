@@ -1,0 +1,50 @@
+.alert {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	display: block;
+	width: auto;
+	margin: 0 auto;
+	padding: 5px $padding;
+	font-size: 1rem;
+	color: $text-accent-color;
+	background-color: $color-main-light;
+	border: 1px solid $color-inactive;
+	border-top: 0;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: opacity .3s ease, z-index 0 1s;
+
+	&:before {
+		position: absolute;
+		top: 50%;
+		left: 7px;
+		display: inline-block;
+		font: normal normal normal #{$fa-font-size-base}/#{$fa-line-height-base} FontAwesome;
+		font-size: inherit;
+		transform: translateY(-50%);
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	&.error {
+		background-color: #c62828;
+
+		&:before {
+			content: '\f06a';
+		}
+	}
+
+	.alert-wrapper {
+		p {
+			margin: 0;
+			margin-top: 5px;
+			font-size: .8rem;
+		}
+
+		&:before {
+		}
+	}
+
+}
