@@ -3,7 +3,6 @@ import { SOCKET_CONNECT, START_LOADING, END_LOADING, SHOW_ALERT, HIDE_ALERT } fr
 
 const initialState = {
 	isLoading: false,
-	requesting: false,
 	alert: {
 		show: false
 	},

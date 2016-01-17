@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { addMessage } from '../actions/messages';
-import { login } from '../actions/users';
+import { login, logout, register } from '../actions/users';
 import {
 	socketConnect,
 	loadingStart,
@@ -41,17 +41,24 @@ class App extends Component {
 		} = this.props;
 		let _content;
 
-		if (!user.data) {
-			_content = <Login loginAction={ (username, password) => dispatch(login(username, password)) }
-			/>
+		if (!user.userData) {
+			_content = (
+				<Login
+					loginAction={ (username, password) => 		dispatch(login(username, password)) }
+					registerAction={ (username, password) => dispatch(register(username, password)) }
+					errorAction={ (error) => dispatch(alertShow('', error, 'error')) }
+				/>
+			);
 		} else {
 			_content = (
 				<div style={{ position: 'relative', paddingBottom: 100 }}>
+					<h2>Hello { user.userData.username }</h2>
 					<MessageList
 						messages={ messages }
 					/>
 					<AddMessage
 						submitAction={ data => dispatch(addMessage(data._id, data.user, data.text, data.date)) }
+						user={ user.userData }
 					/>
 				</div>
 			);
@@ -62,6 +69,7 @@ class App extends Component {
 				<Loading show={ isLoading} />
 				{ _content }
 				<Alert settings={ this.props.alert } />
+				<button onClick={ () => dispatch(logout()) }>logout</button>
 			</div>
 		);
 	}
@@ -86,7 +94,6 @@ function mapStateToProps(state) {
 		user: state.user,
 		isLoading: state.general.isLoading,
 		alert: state.general.alert,
-		requesting: state.general.requesting
 		// isTyping: state.isTyping
 	};
 }

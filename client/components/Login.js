@@ -77,11 +77,14 @@ export default class Login extends Component {
 
 		if (username.length < 1) error = 'short username';
 		if (password.length < 4) error = 'short password';
+		if (type === 'register' && (password !== password_repeat)) error = 'password mismatch'
 
 		if (error) {
-			console.log('Error: ', error);
+			this.props.errorAction(error);
 		} else {
-			if (type === 'login') {
+			if (type === 'register') {
+				this.props.registerAction(username, password);
+			} else {
 				this.props.loginAction(username, password);
 			}
 		}

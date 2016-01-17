@@ -8,7 +8,7 @@ export default class Alert extends Component {
 
 	render() {
 
-		const style = (this.props.settings.show)? { opacity: 1, zIndex: 99 } : { opacity: 0, zIndex: -1 };
+		const style = (this.props.settings.show)? { opacity: 1, zIndex: 89 } : { opacity: 0, zIndex: -1 };
 
 		return (
 			<div className={ 'alert ' + this.props.settings.alertType } style={style}>

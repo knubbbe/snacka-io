@@ -16,20 +16,23 @@ const createUser = ( (req, res, next) => {
 
     const { username, password } = req.body;
     const _password = sha1(password);
-    const access_token = hat();
+    const token = hat();
 
     db.user.insert({
         username,
         password: _password,
         activeRoom: '',
-        access_token
+        token
     }, (err, doc) => {
-        if (err) res.send({ success: false, error: err.errorType });
+        if (err) {
+            res.send({ success: false, error: err.errorType });
+        } else {
+            res.send({
+                success: true,
+                token: doc.token
+            });
+        }
 
-        res.send({
-            success: true,
-            access_token: doc.access_token
-        });
     });
 });
 
@@ -50,14 +53,20 @@ const loginUser = ( (req, res ,next) => {
     });
 });
 
-const authUser = ( (access_token, cb) => {
-    // const { access_token } = req.body;
+const authUser = ( (req, res ,next) => {
+    const { token, cb } = req.body;
+    // const { token } = req.body;
 
-    db.user.findOne({ access_token },  (err, doc) => {
+    db.user.findOne({ token },  (err, doc) => {
         if (err) res.send({ success: false, error: err.errorType });
 
     if (typeof cb === 'function') {
         cb({
+            success: true,
+            user: doc
+        });
+    } else {
+        res.send({
             success: true,
             user: doc
         });

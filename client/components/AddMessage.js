@@ -63,7 +63,7 @@ export default class AddMessage extends Component {
 
 		this.props.submitAction({
 			_id: Math.random(0,9999),
-			user: { username: 'knubbe', title: 'dev' },
+			user: { username: this.props.user.username, title: 'dev' },
 			text: this.state.text,
 			date: new Date().toISOString()
 		});

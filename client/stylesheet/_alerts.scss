@@ -36,6 +36,14 @@
 		}
 	}
 
+	&.success {
+		background-color: #1bb821;
+
+		&:before {
+			content: '\f058';
+		}
+	}
+
 	.alert-wrapper {
 		p {
 			margin: 0;

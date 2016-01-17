@@ -1,28 +1,51 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions/users';
+import {
+	LOGOUT_REQUEST,
+	LOGOUT_COMPLETE,
+	LOGIN_REQUEST,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
+	REGISTER_REQUEST,
+	REGISTER_SUCCESS,
+	REGISTER_FAILURE
+} from '../actions/users';
 
 const initialState = {
-	isLoggingIn: false,
+	requesting: false,
 	response: false,
 	userData: false
 };
 
 export function user(state = initialState, action) {
 	switch(action.type) {
-		case LOGIN_REQUEST:
+		case LOGIN_REQUEST || REGISTER_REQUEST || LOGOUT_REQUEST:
 			return Object.assign({}, state, {
-				isLoggingIn: true
+				requesting: true
+			});
+		case LOGOUT_COMPLETE:
+			return Object.assign({}, state, {
+				requesting: false,
+				response: false,
+				userData: false
 			});
 		case LOGIN_SUCCESS:
 			return Object.assign({}, state, {
-				isLoggingIn: false,
+				requesting: false,
 				response: false,
 				userData: action.user
 			});
 		case LOGIN_FAILURE:
-			console.log(action);
 			return Object.assign({}, state, {
-				isLoggingIn: false,
-				response: action.response.err
+				requesting: false
+			});
+		case REGISTER_SUCCESS:
+			return Object.assign({}, state, {
+				requesting: false,
+				response: false,
+				userData: action.user
+			});
+		case REGISTER_FAILURE:
+			return Object.assign({}, state, {
+				requesting: false
 			});
 		default:
 			return state;
